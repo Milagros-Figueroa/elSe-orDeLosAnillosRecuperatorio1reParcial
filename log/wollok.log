@@ -1,0 +1,17 @@
+{"level":"info","message":"⌛ Building environment","timeElapsed":294,"timestamp":"2026-06-26T12:20:17.014Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":111,"timestamp":"2026-06-26T12:20:17.130Z"}
+{"level":"info","message":"⌛ Validating seres.wlk","timeElapsed":215,"timestamp":"2026-06-26T12:20:17.348Z"}
+{"level":"info","message":"⌛ Validating seres.wlk","timeElapsed":141,"timestamp":"2026-06-26T12:20:17.587Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":131,"timestamp":"2026-06-26T12:20:43.156Z"}
+{"level":"info","message":"⌛ Validating territorios.wlk","timeElapsed":247,"timestamp":"2026-06-26T12:20:43.541Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":127,"timestamp":"2026-06-26T12:22:10.081Z"}
+{"level":"info","message":"⌛ Validating testparcial.wlk","timeElapsed":286,"timestamp":"2026-06-26T12:22:10.392Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":332,"timestamp":"2026-06-26T12:22:50.965Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":179,"timestamp":"2026-06-26T12:22:51.148Z"}
+{"level":"info","message":"Removing diagnostics from /home/erika/Documentos/objetos 1/objetos 1/PracticaParcialObj1_2026C1/testparcial.wlk","timestamp":"2026-06-26T12:22:51.249Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":134,"timestamp":"2026-06-26T12:23:14.897Z"}
+{"level":"info","message":"⌛ Validating test.wtest","timeElapsed":183,"timestamp":"2026-06-26T12:23:15.094Z"}
+{"level":"info","message":"⌛ Validating seres.wlk","timeElapsed":155,"timestamp":"2026-06-26T12:23:26.572Z"}
+{"level":"info","message":"⌛ Validating test.wtest","timeElapsed":160,"timestamp":"2026-06-26T12:23:26.829Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":115,"timestamp":"2026-06-26T12:23:28.141Z"}
+{"level":"info","message":"⌛ Validating seres.wlk","timeElapsed":155,"timestamp":"2026-06-26T12:23:28.312Z"}
