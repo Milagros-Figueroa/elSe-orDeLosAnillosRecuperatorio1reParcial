@@ -1,0 +1,64 @@
+import seres.*
+import territorios.*
+
+describe "Territorio y seres"{
+   
+   
+    test "Personajes"{
+        hobbit.adquiereExperiencia()
+
+        assert.equals(48, hobbit.amigos())  
+        assert.equals(20, elfo.cancionesQueSaben())      
+    }
+
+    test "hobbits realiza una fiesta"{
+        hobbit.organizarUnaFiesta()
+        elfoSilvano.habilidad()
+        elfo.adquiereExperiencia()
+        elfo.adquiereExperiencia()
+        elfo.adquiereExperiencia()       
+        
+        assert.equals(580, elfoSilvano.habilidad())
+        assert.equals(1100, hobbit.habilidad())
+        assert.equals(45, hobbit.amigos())
+    }
+
+    test "valor maximo de habilidad y pruva de variable en objetos"{
+        const legolas = elfoSilvano
+        const barbaRoja = enanoHerrero
+        const frodo = hobbit
+        tierraMedia
+        tierraMedia.agregarA(legolas)
+        tierraMedia.agregarA(barbaRoja)
+        tierraMedia.agregarA(frodo)
+        frodo.organizarUnaFiesta()
+
+
+        assert.equals(45, frodo.amigos())
+        assert.that(frodo.esInmortal())
+        assert.equals(580, legolas.habilidad())
+        assert.equals(660, tierraMedia.promedioDeHabilidadTotal())
+        assert.equals(1100, tierraMedia.valorMaximoHabilidadDeLosInmortales())
+        assert.equals([legolas,barbaRoja], tierraMedia.seresTorpes())
+        assert.that(tierraMedia.hayUnMortal())
+    }
+
+    test "se organiza un torneo, tambien prubo si puedo usar variable de otro test"{
+        const legolas = elfoSilvano
+        const barbaRoja = enanoHerrero
+        const frodo = hobbit
+        tierraMedia
+        tierraMedia.agregarA(legolas)
+        tierraMedia.agregarA(barbaRoja)
+        tierraMedia.agregarA(frodo)
+        frodo.organizarUnaFiesta()
+        tierraMedia.realizarTorneo()
+        
+        assert.equals(40, legolas.cancionesQueSaben())
+        assert.equals(53, frodo.amigos())
+        assert.equals(500, barbaRoja.ira())
+        assert.equals(4, barbaRoja.espadasFabricadas())
+        assert.equals(1400, barbaRoja.habilidad())
+    }
+
+}
