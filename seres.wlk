@@ -1,3 +1,4 @@
+import territorios.*
 object elfo {
     
     var cancionesQueSaben = 20
@@ -16,6 +17,21 @@ object elfo {
     }
     method adquiereExperiencia(){
         cancionesQueSaben = cancionesQueSaben * 2
+    }
+
+    method sueñosProfundo(){
+        cancionesQueSaben = cancionesQueSaben - 10
+    }
+
+    method estoyConformeCon(elTerritorio){
+        return elTerritorio.lembas() >= 8
+    }
+
+    method tomarRecursoDe(unTerritorio){
+        if(unTerritorio.lembas()>= 3){
+            unTerritorio.cantidadLembas(-3)
+            cancionesQueSaben = cancionesQueSaben + 15
+        }
     }
 
 
@@ -48,7 +64,21 @@ object hobbit {
      return amigos>=20
         
     }
-    
+    method sueñosProfundo(){
+       amigos = amigos - 3
+    }
+
+    method estoyConformeCon(elTerritorio){
+        return elTerritorio.habitantes().filter({h=>h.habilidad()>self.habilidad()}).size()>=2
+    }
+
+     method tomarRecursoDe(unTerritorio){
+        if(unTerritorio.tabaco()>= 4){
+            unTerritorio.cantidadTabaco(-4)
+            amigos = amigos + 7
+            historia = historia + 7
+        }
+    }
 
 }
 
@@ -65,6 +95,18 @@ object enano{
     }
     method adquiereExperiencia(){
        ira = ira + 300
+    }
+
+    method sueñosProfundo(){
+       ira = ira - 50
+    }
+
+    method estoyConformeCon(elTerritorio){
+        return elTerritorio.seresTorpes().size() >= 1
+    }
+
+       method tomarRecursoDe(unTerritorio){
+        
     }
 }
 
@@ -86,6 +128,22 @@ object elfoSilvano{
         cancionesQueSaben = cancionesQueSaben * 2
     }
 
+    method sueñosProfundo(){
+        cancionesQueSaben = cancionesQueSaben - 10
+    }
+
+    method estoyConformeCon(elTerritorio){
+        return elTerritorio.lembas() >= 8
+    }
+
+     method tomarRecursoDe(unTerritorio){
+        if(unTerritorio.lembas()>= 3){
+            unTerritorio.cantidadLembas(-3)
+            cancionesQueSaben = cancionesQueSaben + 15
+        }
+    }
+
+
 }
 
 object enanoHerrero{
@@ -105,5 +163,19 @@ object enanoHerrero{
        ira = ira + 300
        espadasFabricadas +=1
     }
+
+    method sueñosProfundo(){
+       ira = ira - 50
+    }
+
+    method estoyConformeCon(elTerritorio){
+        return elTerritorio.seresTorpes().size() >= 1
+    }
+
+    method tomarRecursoDe(unTerritorio){
+        
+    }
+
+    
 
 }

@@ -16,7 +16,8 @@ describe "Territorio y seres"{
         elfoSilvano.habilidad()
         elfo.adquiereExperiencia()
         elfo.adquiereExperiencia()
-        elfo.adquiereExperiencia()       
+        elfo.adquiereExperiencia()
+
         
         assert.equals(580, elfoSilvano.habilidad())
         assert.equals(1100, hobbit.habilidad())
@@ -53,12 +54,34 @@ describe "Territorio y seres"{
         tierraMedia.agregarA(frodo)
         frodo.organizarUnaFiesta()
         tierraMedia.realizarTorneo()
+
         
         assert.equals(40, legolas.cancionesQueSaben())
         assert.equals(53, frodo.amigos())
         assert.equals(500, barbaRoja.ira())
         assert.equals(4, barbaRoja.espadasFabricadas())
         assert.equals(1400, barbaRoja.habilidad())
+        assert.notThat(tierraMedia.estaEnPaz())
+        
+    }
+
+        test "Segunda Parte con los rusos"{
+        const legolas = elfoSilvano
+        const barbaRoja = enanoHerrero
+        const frodo = hobbit
+        tierraMedia
+        tierraMedia.agregarA(legolas)
+        tierraMedia.agregarA(barbaRoja)
+        tierraMedia.agregarA(frodo)
+        frodo.organizarUnaFiesta()
+        tierraMedia.realizarTorneo()
+        tierraMedia.consumoDeProducto()
+        tierraMedia.consumoDeProducto()
+
+        
+        
+        assert.notThat(tierraMedia.estaEnPaz())
+        
     }
 
 }
