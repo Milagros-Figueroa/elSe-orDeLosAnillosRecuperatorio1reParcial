@@ -1,85 +1,29 @@
-import seres.*
-object tierraMedia{
-    const habitantes = []
-    var lembas = 20
-    var tabaco = 20
 
-    method agregarA (unHabitante){
-        habitantes.add(unHabitante)
+class Territorio {
+    const seres = []
+
+    method seresTorpes() {
+        //Filtra por los seres con habilidad menor a 1000
+      return seres.filter({s => s.habilidad() < 1000})
+    }
+    //Se crea un metodo que devuelve los seres inmortales
+    method seresInmortales() { return seres.filter({s => s.esInmortal()})}
+    //De la lista seres Inmortales, devuelve una lista y luego filtra el maximo
+    method valorMaximoHabilidadDeInmortales() {
+      return self.seresInmortales().map({s => s.habilidad()}).max()
     }
 
-    method quitarA(unHabitante){
-        habitantes.remove(unHabitante)
+    method promedioDeHabilidadTotal() {
+      return seres.sum({s => s.habilidad()}) / seres.size()
     }
-    method lembas()=lembas
-    method tabaco()=tabaco
-
-    method habitantes()=habitantes
-    method cantidadLembas(unaCantidad){
-        lembas= lembas + unaCantidad
-
+    method esSabio() {
+      return seres.all({s => s.habilidad() > 300})
     }
 
-    method cantidadTabaco(unaCantidad){
-        tabaco= tabaco + unaCantidad
-        
+    method huboTorneo() {
+      return seres.forEach({s => s.xp()})
     }
-
-    method seresTorpes(){
-      return  habitantes.filter({h=>h.habilidad()<1000})
+    method epifania() {
+      return self.seresTorpes().map({s => s.xp()})
     }
-
-    method inmortales(){
-        return habitantes.filter({h=>h.esInmortal()})
-    }
-
-    method valorMaximoHabilidadDeLosInmortales(){
-        return self.inmortales().map({i=>i.habilidad()}).max()
-    }
-
-    method totalhabitante(){
-        return habitantes.size()
-    }
-
-    method promedioDeHabilidadTotal(){
-        return habitantes.sum({h=>h.habilidad()})/self.totalhabitante()
-    }
-
-    method territorioSabio(){
-        return habitantes.all({h=>h.habilidad()>300})
-    }
-
-    method realizarTorneo(){
-        habitantes.forEach({h=>h.adquiereExperiencia()})
-    }
-
-    method epifania(){
-         self.seresTorpes().forEach({st=>st.adquiereExperiencia()})
-    }
-
-    method hayUnMortal(){
-        return habitantes.any({h=>!h.esInmortal()})
-    }
-
-    method habitantesConUnSiertoRangoDeHabilidad(){
-        return habitantes.filter({h=>h.habilidad().between(1000, 3000)})
-    }
-
-    method elegirCapitan(){
-        return self.habitantesConUnSiertoRangoDeHabilidad().max({h=>h.habilidad()})
-    }
-
-    method estaEnPaz(){
-        return habitantes.all({h=>h.estoyConformeCon(self)})
-    }
-
-    method somnolecia(){
-        habitantes.forEach({h=>h.sueñosProfundo()})
-    }
-
-    method consumoDeProducto(){
-        habitantes.forEach({h=>h.tomarRecursoDe(self)})
-
-    }
-
 }
