@@ -1,6 +1,11 @@
+import seres.*
 
 class Territorio {
     const seres = []
+
+    method agregarSeres(unSer) {
+      seres.add(unSer)
+    }
 
     method seresTorpes() {
         //Filtra por los seres con habilidad menor a 1000
@@ -24,6 +29,10 @@ class Territorio {
       return seres.forEach({s => s.xp()})
     }
     method epifania() {
-      return self.seresTorpes().map({s => s.xp()})
+      return self.seresTorpes().forEach({s=>s.xp()})
     }
+
+    //Devuelve una lista de los seres inmortales
+    method hayMortalesEnTerritorio() {
+         return seres.any({s=>!s.esInmortal()})}
 }

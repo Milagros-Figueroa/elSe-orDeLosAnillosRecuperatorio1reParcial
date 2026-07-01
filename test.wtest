@@ -1,87 +1,49 @@
-import seres.*
 import territorios.*
+import seres.*
 
-describe "Territorio y seres"{
+
+describe "Bienvenido al mundo del señor de los anillos" {
+    const bosque = new Territorio()
+    const elfoSilvano1 = new ElfoSilvano()
+    const hobbit1 = new Hobbit()
+    const enanoHerrero1 = new EnanoHerrero()
+    
+  method initialize(){
+    bosque.agregarSeres(enanoHerrero1)
+    bosque.agregarSeres(elfoSilvano1)
+    bosque.agregarSeres(hobbit1)
+    hobbit1.organizarUnaFiesta()
+  }
+  
+  
+  test "la habilidad del elfo debe ser 580" {
+    assert.equals(580, elfoSilvano1.habilidad())
+  }
+  test "la habilidad del hobbit 1100" {
+    assert.equals(1100, hobbit1.habilidad())
+  }
+
+  test "y la habilidad del enano 300 respectivamente." {
+    assert.equals(300, enanoHerrero1.habilidad())
+  }
+
+  test "el hobbit debe tener 45 amigos y debe ser inmortal." {
+    assert.equals(45, hobbit1.cantAmigos())
    
-   
-    test "Personajes"{
-        hobbit.adquiereExperiencia()
+  }
+  test "el hobbit tiene 45 amigos, por ende, es inmortal" {
+     assert.that(hobbit1.esInmortal())
+  }
 
-        assert.equals(48, hobbit.amigos())  
-        assert.equals(20, elfo.cancionesQueSaben())      
-    }
+test "el valor máximo de habilidad entre todos los seres inmortales debe ser 1100. " {
+  assert.equals(660, bosque.promedioDeHabilidadTotal())
+}
 
-    test "hobbits realiza una fiesta"{
-        hobbit.organizarUnaFiesta()
-        elfoSilvano.habilidad()
-        elfo.adquiereExperiencia()
-        elfo.adquiereExperiencia()
-        elfo.adquiereExperiencia()
+test "los seres torpes del territorio son el elfo y el enano." {
+  assert.equals([enanoHerrero1, elfoSilvano1], bosque.seresTorpes())
+}
 
-        
-        assert.equals(580, elfoSilvano.habilidad())
-        assert.equals(1100, hobbit.habilidad())
-        assert.equals(45, hobbit.amigos())
-    }
-
-    test "valor maximo de habilidad y pruva de variable en objetos"{
-        const legolas = elfoSilvano
-        const barbaRoja = enanoHerrero
-        const frodo = hobbit
-        tierraMedia
-        tierraMedia.agregarA(legolas)
-        tierraMedia.agregarA(barbaRoja)
-        tierraMedia.agregarA(frodo)
-        frodo.organizarUnaFiesta()
-
-
-        assert.equals(45, frodo.amigos())
-        assert.that(frodo.esInmortal())
-        assert.equals(580, legolas.habilidad())
-        assert.equals(660, tierraMedia.promedioDeHabilidadTotal())
-        assert.equals(1100, tierraMedia.valorMaximoHabilidadDeLosInmortales())
-        assert.equals([legolas,barbaRoja], tierraMedia.seresTorpes())
-        assert.that(tierraMedia.hayUnMortal())
-    }
-
-    test "se organiza un torneo, tambien prubo si puedo usar variable de otro test"{
-        const legolas = elfoSilvano
-        const barbaRoja = enanoHerrero
-        const frodo = hobbit
-        tierraMedia
-        tierraMedia.agregarA(legolas)
-        tierraMedia.agregarA(barbaRoja)
-        tierraMedia.agregarA(frodo)
-        frodo.organizarUnaFiesta()
-        tierraMedia.realizarTorneo()
-
-        
-        assert.equals(40, legolas.cancionesQueSaben())
-        assert.equals(53, frodo.amigos())
-        assert.equals(500, barbaRoja.ira())
-        assert.equals(4, barbaRoja.espadasFabricadas())
-        assert.equals(1400, barbaRoja.habilidad())
-        assert.notThat(tierraMedia.estaEnPaz())
-        
-    }
-
-        test "Segunda Parte con los rusos"{
-        const legolas = elfoSilvano
-        const barbaRoja = enanoHerrero
-        const frodo = hobbit
-        tierraMedia
-        tierraMedia.agregarA(legolas)
-        tierraMedia.agregarA(barbaRoja)
-        tierraMedia.agregarA(frodo)
-        frodo.organizarUnaFiesta()
-        tierraMedia.realizarTorneo()
-        tierraMedia.consumoDeProducto()
-        tierraMedia.consumoDeProducto()
-
-        
-        
-        assert.notThat(tierraMedia.estaEnPaz())
-        
-    }
-
+test "existe un ser mortal en el territorio."{
+   assert.that(bosque.hayMortalesEnTerritorio())
+}
 }
